@@ -10,8 +10,8 @@ async function getLink() {
     const page = await browser.newPage();
     await page.goto('https://www.youtube.com');
     await page.waitForSelector('#search-input #search');
-    let searchTerm = prompt("Please enter the title of the song you want to download: ");
-    await page.type('#search-input #search', searchTerm);
+    // let searchTerm = prompt("Please enter the title of the song you want to download: ");
+    await page.type('#search-input #search', searchTermCLI);
     await Promise.all([
         page.waitForNavigation(),
         page.click('#search-icon-legacy'),
@@ -42,9 +42,8 @@ getLink().then(([videoUrl, videoTitle]) => {
         const audioFormats = ytdl.filterFormats(info.formats, 'audioonly');
         const bestAudioFormat = ytdl.chooseFormat(audioFormats, { quality: 'highestaudio' });
         const fileStream = ytdl(videoUrl, { format: bestAudioFormat });
-        let filepath = prompt("Please enter the filepath in where you want to store the song: ");
-        // const fileName = `/Users/nisoeung/Music/Music/${videoTitle}.mp3`;
-        const fileName = `${filepath}${videoTitle}.mp3`.replace(/\s/g, '_');
+        const fileName = `/Users/nisoeung/Music/Music/${videoTitle}.mp3`;
+        // const fileName = `${filepath}${videoTitle}.mp3`.replace(/\s/g, '_');
         fileStream.pipe(fs.createWriteStream(fileName));
         fileStream.on('end', function () {
             console.log('Download finished: ' + fileName);
