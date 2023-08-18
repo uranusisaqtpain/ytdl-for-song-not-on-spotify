@@ -4,7 +4,7 @@ require('fs');
 require('ytdl-core');
 
 async function getLink() {
-    const browser = await puppeteer.launch({ headless: 'new' });
+    const browser = await puppeteer.launch({ headless: false });
     const page = await browser.newPage();
     await page.goto('https://www.youtube.com');
     await page.waitForSelector('#search-input #search');
