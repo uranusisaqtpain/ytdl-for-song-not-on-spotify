@@ -42,7 +42,7 @@ getLink().then(async ([videoUrl, videoTitle]) => {
       args: [videoUrl]
     };
 
-     const log = await PythonShell.run('downloader.py', options, function (err, results) {
+     const log = await PythonShell.run('script.py', options, function (err, results) {
         if (err)
             throw err;
         return results;
