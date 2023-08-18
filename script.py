@@ -11,7 +11,7 @@ def download(link):
     ydl_opts = {
         'ignoreerrors': True,
         "format": "bestaudio/best",
-        "outtmpl": "/Users/nisoeung/Music/Music/Media.localized/Music/stuffs_to_add_to_spotify/%(title)s.%(ext)s",
+        "outtmpl": "/audio_file_path/%(title)s.%(ext)s",
         "extractaudio": True,
         "postprocessors": [{
             "key": "FFmpegExtractAudio",
