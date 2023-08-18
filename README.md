@@ -6,6 +6,6 @@ This command line search for the song from YouTube and download an mp3 file for 
 ### Step 1:
 ```git clone https://github.com/uranusisaqtpain/ytdl-for-song-not-on-spotify```
 ### Step 2:
-```change your directory to the ytdl-for-song-not-on-Spotify```
+```change your directory to the ytdl-for-song-not-on-spotify```
 ### Step 3: Run the code and follow the UI instructions
 ```node main.js```
